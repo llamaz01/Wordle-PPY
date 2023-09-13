@@ -84,3 +84,8 @@ p{
     border-radius: 3px;
     margin-right: 10px; 
 }
+#mensaje {
+    display: none; 
+    color: red; 
+    font-size: 15px;
+}

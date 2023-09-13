@@ -12,13 +12,22 @@ rendirse.addEventListener("click", function () {
   estado = true;
   intentar();
 });
-let diccionario = ["LIMON", "MELON", "MANGO", "FRESA"];
-const palabra = diccionario[Math.floor(Math.random() * diccionario.length)];
+//codigo anterior 
+//let diccionario = ["LIMON", "MELON", "MANGO", "FRESA"];
+//const palabra = diccionario[Math.floor(Math.random() * diccionario.length)];
+let palabra;
 
-
+//UTILIZACION DEL API
+ fetch('https://random-word-api.herokuapp.com/word?length=5&&number=1&&lang=es')
+ .then(response=> response.json())
+ .then(response=> {
+    console.log(response)
+    palabra=response[0].toUpperCase()
+ })
+.catch(err=>console.error(err));
 
 let intentos = 6;
-//let palabra = "APPLE";
+
 window.addEventListener("load", init);
 
 function init() {
@@ -26,15 +35,23 @@ function init() {
 }
 
 function intentar() {
-    console.log(palabra)
+    console.log(palabra);
+
   const INTENTO = leerIntento();
+  const mensajeElement = document.getElementById("mensaje");
+  mensajeElement.style.display= 'none';
   historial.innerHTML = "Intentos";
   rendirse.style.display = "inline-block";
   const GRID = document.getElementById("grid");
   const ROW = document.createElement("div");
   ROW.className = "row";
+  if(INTENTO.length !== 5 || !/^[A-Za-z]+$/.test(INTENTO)){
+
+    mensajeElement.textContent = 'Debe tener exactamente 5 letras y no debe contener numeros';
+    mensajeElement.style.display = 'block';
+}  
   if (estado == true) {
-    terminar("<h1>La fruta era " + palabra + "</h1>");
+    terminar("<h1>La palabra era " + palabra + "</h1>");
   }
   for (let i in palabra) {
     const SPAN = document.createElement("span");
@@ -54,17 +71,17 @@ function intentar() {
     }
     ROW.appendChild(SPAN);
   }
+  GRID.appendChild(ROW);
   if (INTENTO === palabra) {
     terminar("<h1>GANASTE!😀</h1>");
     console.log("GANASTE!");
     return;
   }
-  GRID.appendChild(ROW);
   console.log(intentos);
   intentos--;
   if (intentos == 0) {
     console.log("PERDISTE!");
-    terminar("<h1>PERDISTE!! La fruta era " + palabra + "😖</h1>");
+    terminar("<h1>PERDISTE!! La palabra era " + palabra + "😖</h1>");
   }
   
 }
