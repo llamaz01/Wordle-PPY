@@ -1,0 +1,86 @@
+body {
+    font-family: 'Press Start 2P', sans-serif;
+    
+    background-image: url(https://img.freepik.com/vector-premium/fondo-efecto-pintura-acuarela-banner-pastel-tonos-azules-manchas-pincel_516872-50.jpg);
+    background-repeat: no-repeat;
+     background-size:cover;
+     
+    height:max-content;
+    text-align: center;  
+  }
+     
+  h1 {
+    font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    color: #0f3c91;
+  }
+p{
+    font-family: 'Press Start 2P', sans-serif;
+     color: #445c97;
+}
+
+  #guess-input {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px;
+    font-size: 18px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+ 
+     
+  #guess-button {
+    display: block;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #0cbaba;
+    color: #fff;
+    border:1px;
+    border-radius: 3px;
+    margin:0 10px;
+    margin-left: 10px;
+  }
+     
+  button:active {
+      transform: scale(0.95);
+  }
+     
+  .letter {
+      border: 1px solid black;
+      padding: 3px;
+      margin: 3px;
+      min-width: 20px;
+      text-align: center;
+      display: inline-block;
+      border-radius: 5px;
+  }
+     
+  .row{
+      margin-bottom: 10px;
+      
+  }
+     
+  .input-area{
+      margin: 30px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 10px;
+}
+
+#rendirse-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #7c8383;
+    color: #fff;
+    border:1px;
+    border-radius: 3px;
+    margin-right: 10px; 
+}
